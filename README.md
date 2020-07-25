@@ -144,6 +144,19 @@ My.sum_of_squares(3, 4)
         ((= x 0) 0)
         ((< x 0) (- x))))
   )
+
+# Вариант cond с else
+(define (abs x)
+  (cond ((< x 0) (- x))
+        (else x)))
+
+# Вариант if с else
+(define (abs x)
+  (if (< x 0)
+      (- x)
+      x))
+
+
 ```
 
 В `elixir` точно так же
@@ -158,7 +171,38 @@ defmodule My do
         0
       x < 0 ->
         -x
+      true ->
+        "This is equivalent to else"
     end
+  end
+
+  # Вариант с if else (есть так же unless)
+  def abs(x) do
+    if x < 0 do
+      -x
+    else
+      x
+    end
+  end
+
+  # Вариант if else с блочной записью
+  def abs(x) do
+    if x < 0, do: -x, else: x
   end
 end
 ```
+
+Логические операторы
+
+```scheme
+(and e1 e2 e3)
+(or e1 e2 e3)
+(not e)
+```
+
+```elixir
+and, or, not # принимают только булевы типы справа и слева, иначе выкидывают ошибку
+&&, ||, ! # принимает любые типы, за ложь считает nil и false, всё остальное за истину
+```
+
+### 1.1.7. Пример: вычисление квадратного корня методом Ньютона
