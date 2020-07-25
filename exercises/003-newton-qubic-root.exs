@@ -11,7 +11,6 @@ defmodule Ex do
     if guess_stopped_to_change?(guess, prev_guess) do
       guess
     else
-      IO.puts(guess)
       iter(x, improve(guess, x), guess)
     end
   end
