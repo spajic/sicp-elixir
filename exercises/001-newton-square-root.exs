@@ -32,9 +32,8 @@ defmodule Ex do
     (guess + x/guess) / 2
   end
 
+  # Метод abs есть из коробки
   def myabs(x) do
     if x < 0, do: -x, else: x
   end
 end
-
-
